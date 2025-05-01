@@ -9,21 +9,24 @@ const mobileRoute = require("./route/mobileRoute")
 
 const app = express()
 app.use(express.json())
+app.use(cors())
+
 
 app.get("/", (req,res) => {
     res.send("My Collage")
 })
 
-app.listen(5000)
+
 app.use("/api/collage", collageRoute)
 app.use("/api/bank",bankRoute)
 app.use("/api/cloth",clothRoute)
 app.use("/api/bike",bikeRoute)
 app.use("/api/mobile",mobileRoute)
 
+app.listen(5000)
 
 
-app.use(cors())
+
 
 
 async function db() {
